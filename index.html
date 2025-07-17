@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="A heartfelt birthday website for Ankita, celebrating her kindness, beauty, and the quiet inspiration she brought into someone's life." />
+    <meta name="theme-color" content="#ff6b9d" />
+    <title>Happy Birthday Ankita 🎂</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap"
+        rel="stylesheet" />
+
+    <link rel="preload" href="assets/ankita-photo.jpg" as="image" />
+    <link rel="preload" href="assets/sketch.jpg" as="image" />
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="landing" role="banner">
+        <hgroup>
+            <h1>Happy Birthday Ankita</h1>
+            <p class="subtitle">✨ Celebrating the light you bring into the world ✨</p>
+        </hgroup>
+
+        <nav class="scroll-indicator" aria-label="Page navigation">
+            <p>↓ Scroll down for something from the heart ↓</p>
+        </nav>
+
+        <div class="decorative-elements" aria-hidden="true">
+            <div class="balloon balloon-1" aria-hidden="true">🎈</div>
+            <div class="balloon balloon-2" aria-hidden="true">🎈</div>
+            <div class="balloon balloon-3" aria-hidden="true">🎈</div>
+        </div>
+
+        <div class="floating-hearts" aria-hidden="true">
+            <div class="heart" style="top: 20%; left: 10%;" role="img" aria-label="Pink heart emoji">💖</div>
+            <div class="heart" style="top: 60%; left: 85%;" role="img" aria-label="Pink hearts emoji">💕</div>
+            <div class="heart" style="top: 30%; left: 80%;" role="img" aria-label="Sparkling pink heart emoji">💗</div>
+            <div class="heart" style="top: 70%; left: 15%;" role="img" aria-label="Heart with ribbon emoji">💝</div>
+            <div class="heart" style="top: 45%; left: 5%;" role="img" aria-label="Sparkles emoji">✨</div>
+            <div class="heart" style="top: 25%; left: 90%;" role="img" aria-label="Star emoji">🌟</div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="photo-section" aria-labelledby="photo-heading">
+            <div class="photo-container">
+                <figure class="photo-frame">
+                    <img src="assets/ankita-photo.jpg" alt="Portrait of Ankita smiling" class="photo-image"
+                        loading="lazy" width="300" height="300" />
+                    <div class="photo-overlay">
+                        <figcaption class="photo-text">
+                            <h3 id="photo-heading">Grace in Every Smile</h3>
+                            <p>A smile that still stays with me ✨</p>
+                        </figcaption>
+                    </div>
+                </figure>
+                <div class="photo-caption">
+                    <p>It just keeps getting brighter day by day.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="story-section" aria-labelledby="story-heading">
+            <h2 id="story-heading" class="story-title">Memories That Stayed</h2>
+
+            <article class="story-item">
+                <h3>The Beginning</h3>
+                <p>Even when we didn’t talk much, there was always something about your presence — calm, kind, and
+                    quietly beautiful. I noticed it, even if I never said it out loud.</p>
+            </article>
+
+            <article class="story-item">
+                <h3>The Little Things</h3>
+                <p>Your smile. The way you treated people. How effortlessly graceful you were. It’s funny how the
+                    quietest things leave the deepest impression.</p>
+            </article>
+
+            <article class="story-item">
+                <h3>Growing Up</h3>
+                <p>Time passed. Life went on. But that quiet admiration never really left. I’ve always respected the
+                    kind of person you are — someone who carries themselves with so much grace and strength.</p>
+            </article>
+
+            <article class="story-item">
+                <h3>Today</h3>
+                <p>On your birthday, I just want you to know — no expectations, no pressure — just a simple wish for
+                    happiness, peace, and everything good in your life. Happy Birthday, Ankita. 🎉</p>
+            </article>
+        </section>
+
+        <section class="sketch-section" aria-labelledby="sketch-heading">
+            <h2 id="sketch-heading" class="sketch-title">Something Made Just for You</h2>
+            <div class="sketch-container">
+                <button class="sketch-box" onclick="revealSketch()" aria-describedby="sketch-description">
+                    <div class="sketch-placeholder" id="sketchPlaceholder">
+                        <div>
+                            <div style="font-size: 2rem; margin-bottom: 10px;" role="img"
+                                aria-label="Art palette emoji">🎨</div>
+                            <div>Your Portrait Awaits</div>
+                        </div>
+                    </div>
+                    <img src="assets/sketch.jpg" alt="Hand-drawn sketch portrait of Ankita" id="sketchImage"
+                        class="sketch-image" style="display: none;" loading="lazy" width="400" height="400" />
+                    <div class="reveal-text" id="revealText">Tap gently to reveal your surprise</div>
+                </button>
+                <p id="sketch-description" class="sr-only">Tap to reveal a hand-drawn portrait made just for you</p>
+            </div>
+        </section>
+
+        <section class="letter-section" aria-labelledby="letter-heading">
+            <article class="letter-container">
+                <h2 id="letter-heading" class="letter-title">A Birthday Letter</h2>
+                <div class="letter-content">
+                    <p><strong>Dear Ankita,</strong></p>
+                    <br />
+                    <p>Wishing you the happiest birthday — with nothing but warmth and good energy. You’ve always stood
+                        out in a quiet, graceful way. And even though we haven’t talked a lot, you’ve left a lasting
+                        impression.</p>
+                    <br />
+                    <p>This sketch is just my way of saying that. Sometimes, art says what words can’t — and this one
+                        came straight from the heart.</p>
+                    <br />
+                    <p>You becoming an advocate — it’s inspiring. Watching you step into your path with such strength
+                        and dignity honestly makes me proud from afar. You’re doing amazing, and I hope you keep going,
+                        full of purpose and peace.</p>
+                    <br />
+                    <p>You’re a genuinely good person. That kind of goodness is rare, and I hope you carry it with you
+                        always — because it’s what makes you truly special.</p>
+                    <br />
+                    <p>I hope your year ahead is full of little joys, calm moments, strong days, and everything
+                        beautiful. And good health — always.</p>
+                    <br />
+                    <p>Today is just about you — and if this small gesture brings even a moment of joy to your day,
+                        that’s more than enough for me.</p>
+                    <br />
+                    <p>With all my respect, admiration, and warmest wishes,</p>
+                </div>
+                <div class="signature">— Snehashis</div>
+            </article>
+        </section>
+    </main>
+
+    <aside class="music-control" role="complementary" aria-label="Background music control">
+        <button onclick="toggleMusic()" aria-label="Toggle background music" class="music-button" id="musicButton">
+            <span class="music-icon" id="musicIcon" role="img" aria-label="Music note">🎵</span>
+            <span class="sr-only">Toggle background music</span>
+        </button>
+    </aside>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
