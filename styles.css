@@ -106,9 +106,11 @@
 
 html {
     scroll-behavior: smooth;
-    /* ADDED: Ensure html takes full height and hides its own overflow */
-    height: 100%;
-    overflow: hidden; /* HTML itself should not scroll */
+    scroll-padding-top: 2rem;
+    /* REVERTED: html no longer strictly controls height or overflow for snapping */
+    height: auto; /* Allow content to dictate height */
+    overflow-y: auto; /* Allow default vertical scrolling */
+    /* REMOVED: scroll-snap-type from html */
 }
 
 body {
@@ -125,10 +127,14 @@ body {
     overflow-x: hidden;
     /* Prevents horizontal scroll from background-size */
     
-    /* ADDED: Body is now the main scroll container with snapping */
-    height: 100%; /* Ensure body takes full height */
-    overflow-y: scroll; /* Explicitly enable vertical scrolling on body */
-    scroll-snap-type: y mandatory; /* Apply mandatory snap to the body */
+    /* REVERTED: body no longer strictly controls height for snapping */
+    min-height: 100vh; /* Ensures body is at least full viewport height */
+    height: auto; /* Allow content to dictate height */
+    overflow-y: auto; /* Allow default vertical scrolling */
+    /* REMOVED: scroll-snap-type from body */
+
+    /* ADDED BACK: overscroll-behavior-y to contain scroll effects at boundaries */
+    overscroll-behavior-y: contain;
     
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -412,8 +418,7 @@ button {
    ========================================================================== */
 
 .landing {
-    /* MODIFIED: Ensure section takes full viewport height */
-    height: 100vh; /* Changed from min-height */
+    min-height: 100vh; /* REVERTED to min-height */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -421,12 +426,12 @@ button {
     text-align: center;
     position: relative;
     background: var(--gradient-secondary);
-    overflow: hidden; /* Important for containing its pseudo-elements and preventing internal scroll */
+    overflow: hidden; /* Important for containing its pseudo-elements */
 
-    /* ADDED: Make landing page a snap point */
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    overflow-y: auto; /* Allow content inside to scroll if it overflows */
+    /* REMOVED: scroll-snap properties from individual sections */
+    /* scroll-snap-align: start; */
+    /* scroll-snap-stop: always; */
+    /* overflow-y: auto; */
 }
 
 .landing hgroup {
@@ -578,8 +583,7 @@ button {
    ========================================================================== */
 
 .photo-section {
-    /* MODIFIED: Ensure section takes full viewport height */
-    height: 100vh; /* Changed from min-height */
+    min-height: 100vh; /* REVERTED to min-height */
     padding: var(--space-4xl) var(--space-lg);
     text-align: center;
     position: relative;
@@ -587,10 +591,10 @@ button {
     transform: translateY(50px);
     transition: opacity var(--anim-slow) ease-out, transform var(--anim-slow) ease-out;
 
-    /* ADDED: Make photo section a snap point */
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    overflow-y: auto; /* Allow content inside to scroll if it overflows */
+    /* REMOVED: scroll-snap properties from individual sections */
+    /* scroll-snap-align: start; */
+    /* scroll-snap-stop: always; */
+    /* overflow-y: auto; */
 }
 
 .photo-section.animate {
@@ -708,17 +712,16 @@ button {
    ========================================================================== */
 
 .story-section {
-    /* MODIFIED: Ensure section takes full viewport height */
-    height: 100vh; /* Changed from min-height */
+    min-height: 100vh; /* REVERTED to min-height */
     padding: var(--space-4xl) var(--space-lg);
     max-width: 800px;
     margin: 0 auto;
     /* No explicit background here, so body background will show */
 
-    /* ADDED: Make story section a snap point */
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    overflow-y: auto; /* Allow content inside to scroll if it overflows */
+    /* REMOVED: scroll-snap properties from individual sections */
+    /* scroll-snap-align: start; */
+    /* scroll-snap-stop: always; */
+    /* overflow-y: auto; */
 }
 
 .story-title {
@@ -800,18 +803,17 @@ button {
    ========================================================================== */
 
 .sketch-section {
-    /* MODIFIED: Ensure section takes full viewport height */
-    height: 100vh; /* Changed from min-height */
+    min-height: 100vh; /* REVERTED to min-height */
     padding: var(--space-4xl) var(--space-lg);
     text-align: center;
     opacity: 0;
     transform: translateY(50px);
     transition: opacity var(--anim-slow) ease-out, transform var(--anim-slow) ease-out;
 
-    /* ADDED: Make sketch section a snap point */
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    overflow-y: auto; /* Allow content inside to scroll if it overflows */
+    /* REMOVED: scroll-snap properties from individual sections */
+    /* scroll-snap-align: start; */
+    /* scroll-snap-stop: always; */
+    /* overflow-y: auto; */
 }
 
 .sketch-section.animate {
@@ -928,8 +930,7 @@ button {
    ========================================================================== */
 
 .letter-section {
-    /* MODIFIED: Ensure section takes full viewport height */
-    height: 100vh; /* Changed from min-height */
+    min-height: 100vh; /* REVERTED to min-height */
     padding: var(--space-4xl) var(--space-lg);
     max-width: 700px;
     margin: 0 auto;
@@ -937,10 +938,10 @@ button {
     transform: translateY(50px);
     transition: opacity var(--anim-slow) ease-out, transform var(--anim-slow) ease-out;
 
-    /* ADDED: Make letter section a snap point */
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    overflow-y: auto; /* Allow content inside to scroll if it overflows */
+    /* REMOVED: scroll-snap properties from individual sections */
+    /* scroll-snap-align: start; */
+    /* scroll-snap-stop: always; */
+    /* overflow-y: auto; */
 }
 
 .letter-section.animate {
@@ -1229,12 +1230,12 @@ button {
         height: 300px;
     }
 
-    /* MODIFIED: Adjusted vertical padding for these sections for better fit within 100vh */
+    /* Keep the adjusted vertical padding for better fit on mobile */
     .story-section,
     .sketch-section,
     .letter-section,
-    .photo-section { /* Included photo-section here too */
-        padding: var(--space-lg) var(--space-md); /* Changed vertical padding to 1.5rem */
+    .photo-section {
+        padding: var(--space-lg) var(--space-md); /* Vertical padding 1.5rem */
     }
 
     .story-item {
