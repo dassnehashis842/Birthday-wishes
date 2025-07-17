@@ -107,9 +107,9 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 2rem;
-    /* REVERTED: html no longer strictly controls height or overflow for snapping */
-    height: auto; /* Allow content to dictate height */
-    overflow-y: auto; /* Allow default vertical scrolling */
+    /* REVERTED: Remove explicit height and overflow from html */
+    /* height: 100%; */
+    /* overflow: hidden; */
     /* REMOVED: scroll-snap-type from html */
 }
 
@@ -127,14 +127,14 @@ body {
     overflow-x: hidden;
     /* Prevents horizontal scroll from background-size */
     
-    /* REVERTED: body no longer strictly controls height for snapping */
-    min-height: 100vh; /* Ensures body is at least full viewport height */
-    height: auto; /* Allow content to dictate height */
-    overflow-y: auto; /* Allow default vertical scrolling */
+    /* REVERTED: Remove explicit height and overflow-y from body */
+    min-height: 100vh; /* Keep min-height to ensure it always takes full screen */
+    /* height: 100%; */
+    /* overflow-y: scroll; */
     /* REMOVED: scroll-snap-type from body */
 
-    /* ADDED BACK: overscroll-behavior-y to contain scroll effects at boundaries */
-    overscroll-behavior-y: contain;
+    /* REMOVED: overscroll-behavior-y for now to ensure basic scrolling works */
+    /* overscroll-behavior-y: contain; */
     
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -418,7 +418,7 @@ button {
    ========================================================================== */
 
 .landing {
-    min-height: 100vh; /* REVERTED to min-height */
+    min-height: 100vh; /* Keep min-height */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -428,7 +428,7 @@ button {
     background: var(--gradient-secondary);
     overflow: hidden; /* Important for containing its pseudo-elements */
 
-    /* REMOVED: scroll-snap properties from individual sections */
+    /* REMOVED: scroll-snap properties from sections */
     /* scroll-snap-align: start; */
     /* scroll-snap-stop: always; */
     /* overflow-y: auto; */
@@ -583,7 +583,7 @@ button {
    ========================================================================== */
 
 .photo-section {
-    min-height: 100vh; /* REVERTED to min-height */
+    min-height: 100vh; /* Keep min-height */
     padding: var(--space-4xl) var(--space-lg);
     text-align: center;
     position: relative;
@@ -591,7 +591,7 @@ button {
     transform: translateY(50px);
     transition: opacity var(--anim-slow) ease-out, transform var(--anim-slow) ease-out;
 
-    /* REMOVED: scroll-snap properties from individual sections */
+    /* REMOVED: scroll-snap properties from sections */
     /* scroll-snap-align: start; */
     /* scroll-snap-stop: always; */
     /* overflow-y: auto; */
@@ -712,13 +712,13 @@ button {
    ========================================================================== */
 
 .story-section {
-    min-height: 100vh; /* REVERTED to min-height */
+    min-height: 100vh; /* Keep min-height */
     padding: var(--space-4xl) var(--space-lg);
     max-width: 800px;
     margin: 0 auto;
     /* No explicit background here, so body background will show */
 
-    /* REMOVED: scroll-snap properties from individual sections */
+    /* REMOVED: scroll-snap properties from sections */
     /* scroll-snap-align: start; */
     /* scroll-snap-stop: always; */
     /* overflow-y: auto; */
@@ -803,14 +803,14 @@ button {
    ========================================================================== */
 
 .sketch-section {
-    min-height: 100vh; /* REVERTED to min-height */
+    min-height: 100vh; /* Keep min-height */
     padding: var(--space-4xl) var(--space-lg);
     text-align: center;
     opacity: 0;
     transform: translateY(50px);
     transition: opacity var(--anim-slow) ease-out, transform var(--anim-slow) ease-out;
 
-    /* REMOVED: scroll-snap properties from individual sections */
+    /* REMOVED: scroll-snap properties from sections */
     /* scroll-snap-align: start; */
     /* scroll-snap-stop: always; */
     /* overflow-y: auto; */
@@ -930,7 +930,7 @@ button {
    ========================================================================== */
 
 .letter-section {
-    min-height: 100vh; /* REVERTED to min-height */
+    min-height: 100vh; /* Keep min-height */
     padding: var(--space-4xl) var(--space-lg);
     max-width: 700px;
     margin: 0 auto;
@@ -938,7 +938,7 @@ button {
     transform: translateY(50px);
     transition: opacity var(--anim-slow) ease-out, transform var(--anim-slow) ease-out;
 
-    /* REMOVED: scroll-snap properties from individual sections */
+    /* REMOVED: scroll-snap properties from sections */
     /* scroll-snap-align: start; */
     /* scroll-snap-stop: always; */
     /* overflow-y: auto; */
